@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>وداد | من كرم الدار... إلى مائدتك</title>
+
+  <meta
+    name="description"
+    content="وداد — مطعم سعودي يجمع بين أصالة المذاق ودفء الضيافة والتقديم العصري."
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --olive: #26352b;
+      --olive-light: #35483a;
+      --sand: #c9a875;
+      --cream: #f5f0e6;
+      --white: #fffdf8;
+      --dark: #171916;
+      --text: #3f433d;
+      --border: rgba(38, 53, 43, 0.15);
+      --shadow: 0 20px 50px rgba(23, 25, 22, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "IBM Plex Sans Arabic", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 20px 6%;
+      transition: 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(38, 53, 43, 0.96);
+      backdrop-filter: blur(12px);
+      padding-top: 13px;
+      padding-bottom: 13px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-container {
+      max-width: 1250px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      color: var(--white);
+      font-family: "Amiri", serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .logo span {
+      color: var(--sand);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -7px;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--sand);
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--sand);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .language {
+      color: white;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 6px 11px;
+      border-radius: 50px;
+    }
+
+    .nav-book {
+      background: var(--sand);
+      color: var(--dark);
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .nav-book:hover {
+      transform: translateY(-2px);
+      background: #d9ba88;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(12, 16, 13, 0.35),
+          rgba(12, 16, 13, 0.78)
+        ),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+      color: white;
+    }
+
+    .hero-content {
+      width: min(1250px, 88%);
+      margin: auto;
+      padding-top: 80px;
+    }
+
+    .hero-small {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--sand);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-small::before {
+      content: "";
+      width: 35px;
+      height: 1px;
+      background: var(--sand);
+    }
+
+    .hero h1 {
+      font-family: "Amiri", serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.95;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: var(--sand);
+    }
+
+    .hero h2 {
+      font-family: "Amiri", serif;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 590px;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.86);
+      margin-bottom: 35px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--sand);
+      color: var(--dark);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(201, 168, 117, 0.25);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.55);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    .hero-features {
+      margin-top: 65px;
+      display: flex;
+      gap: 35px;
+      flex-wrap: wrap;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+    }
+
+    .hero-features span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-features span::before {
+      content: "✦";
+      color: var(--sand);
+    }
+
+    /* =========================
+       GENERAL
+    ========================= */
+
+    section {
+      padding: 110px 6%;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-label {
+      color: #8c7046;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Amiri", serif;
+      color: var(--olive);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    /* =========================
+       STORY
+    ========================= */
+
+    .story {
+      background: var(--cream);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .story-image {
+      position: relative;
+    }
+
+    .story-image img {
+      height: 500px;
+      object-fit: cover;
+      border-radius: 2px;
+      width: 500px;
+    }
+
+    .story-image::before {
+      content: "";
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      border: 1px solid var(--sand);
+      top: -20px;
+      right: -20px;
+      z-index: 0;
+    }
+
+    .story-image img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-text p {
+      color: #64675f;
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .story-signature {
+      margin-top: 30px;
+      color: var(--olive);
+      font-family: "Amiri", serif;
+      font-size: 1.5rem;
+    }
+
+    /* =========================
+       DISHES
+    ========================= */
+
+    .dishes {
+      background: var(--white);
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 55px;
+    }
+
+    .section-heading p {
+      color: #73766f;
+    }
+
+    .dish-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .dish-card {
+      background: var(--cream);
+      overflow: hidden;
+      transition: 0.35s ease;
+    }
+
+    .dish-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .dish-image {
+      height: 270px;
+      overflow: hidden;
+    }
+
+    .dish-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .dish-card:hover .dish-image img {
+      transform: scale(1.07);
+    }
+
+    .dish-content {
+      padding: 22px;
+    }
+
+    .dish-content h3 {
+      color: var(--olive);
+      font-family: "Amiri", serif;
+      font-size: 1.55rem;
+      margin-bottom: 5px;
+    }
+
+    .dish-content p {
+      color: #777970;
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .dish-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+
+    .price {
+      color: #8c7046;
+      font-weight: 700;
+    }
+
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience {
+      background: var(--olive);
+      color: white;
+      text-align: center;
+    }
+
+    .experience .section-label {
+      color: var(--sand);
+    }
+
+    .experience .section-title {
+      color: white;
+    }
+
+    .experience p {
+      max-width: 650px;
+      margin: auto auto 35px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* =========================
+       RESERVATION
+    ========================= */
+
+    .reservation {
+      background: var(--cream);
+    }
+
+    .reservation-box {
+      background: var(--white);
+      padding: 60px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .reservation-info h2 {
+      font-family: "Amiri", serif;
+      font-size: 3rem;
+      color: var(--olive);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .reservation-info p {
+      color: #6d7069;
+    }
+
+    .reservation-form {
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      color: var(--olive);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select {
+      border: 1px solid var(--border);
+      background: var(--cream);
+      padding: 13px 15px;
+      font-family: inherit;
+      outline: none;
+      color: var(--text);
+      border-radius: 4px;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--sand);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 70px 6% 25px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      font-family: "Amiri", serif;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    .footer-logo span {
+      color: var(--sand);
+    }
+
+    .footer-about {
+      color: rgba(255,255,255,0.55);
+      max-width: 320px;
+      font-size: 0.9rem;
+    }
+
+    .footer-column h4 {
+      color: var(--sand);
+      margin-bottom: 18px;
+    }
+
+    .footer-column a,
+    .footer-column p {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      margin-bottom: 9px;
+      transition: 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        position: absolute;
+        top: 75px;
+        right: 5%;
+        left: 5%;
+        display: none;
+        flex-direction: column;
+        background: var(--olive);
+        padding: 25px;
+        border-radius: 8px;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-actions .language,
+      .nav-actions .nav-book {
+        display: none;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .story-image img {
+        height: 450px;
+      }
+
+      .dish-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .reservation-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 17px 5%;
+      }
+
+      .logo {
+        font-size: 1.9rem;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero-content {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 4.5rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 75px 5%;
+      }
+
+      .hero-features {
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .story-image::before {
+        right: -10px;
+        top: -10px;
+      }
+
+      .dish-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dish-image {
+        height: 260px;
+      }
+
+      .reservation-box {
+        padding: 35px 22px;
+      }
+
+      .reservation-info h2 {
+        font-size: 2.4rem;
+      }
+
+      .reservation-form {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <a href="#home" class="logo">
+        وداد
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">الرئيسية</a>
+        <a href="#story">قصتنا</a>
+        <a href="#menu">القائمة</a>
+        <a href="#experience">التجربة</a>
+        <a href="#reservation">الحجز</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="language">EN</a>
+        <a href="#reservation" class="nav-book">احجز طاولتك</a>
+        <button class="menu-toggle" id="menuToggle">☰</button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- =========================
+       HERO
+  ========================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <div class="hero-small">
+          مطبخ سعودي معاصر
+        </div>
+
+        <h1>وداد</h1>
+
+        <h2>من كرم الدار... إلى مائدتك</h2>
+
+        <p>
+          نأخذك في رحلة عبر النكهات السعودية الأصيلة،
+          حيث يلتقي دفء الضيافة بجمال التقديم العصري.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">
+            اكتشف قائمتنا
+          </a>
+
+          <a href="#reservation" class="btn btn-outline">
+            احجز طاولتك
+          </a>
+        </div>
+
+        <div class="hero-features">
+          <span>مذاق أصيل</span>
+          <span>ضيافة سعودية</span>
+          <span>تجربة عصرية</span>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- =========================
+         STORY
+    ========================== -->
+
+    <section class="story" id="story">
+
+      <div class="section-container story-grid">
+
+        <div class="story-image">
+          <img
+            src="res.jpg"
+            alt="أجواء مطعم وداد"
+          />
+        </div>
+
+        <div class="story-text">
+
+          <div class="section-label">
+            حكايتنا
+          </div>
+
+          <h2 class="section-title">
+            حكاية تُروى على مائدة
+          </h2>
+
+          <p>
+            في وداد، نؤمن أن الطعام ليس مجرد طبق يُقدّم،
+            بل حكاية وذكرى ولمة تجمعنا.
+          </p>
+
+          <p>
+            استلهمنا أطباقنا من مطابخ المملكة الغنية،
+            وحافظنا على النكهات التي تربينا عليها،
+            مع لمسة عصرية تجعل كل زيارة تجربة مختلفة.
+          </p>
+
+          <div class="story-signature">
+            أهلاً بكم في وداد
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <section class="dishes" id="menu">
+
+      <div class="section-container">
+
+        <div class="section-heading">
+
+          <div class="section-label">
+            مختارات وداد
+          </div>
+
+          <h2 class="section-title">
+            من مطبخنا إلى مائدتك
+          </h2>
+
+          <p>
+            أطباق سعودية أصيلة نحضّرها بعناية،
+            ونقدّمها بروح وداد.
+          </p>
+
+        </div>
+
+
+        <div class="dish-grid">
+
+          <article class="dish-card">
+
+            <div class="dish-image">
+              <img
+                src="dish3.jpg"
+                alt="كبسة وداد"
+              />
+            </div>
+
+            <div class="dish-content">
+
+              <h3>كبسة وداد</h3>
+
+              <p>
+                أرز متبّل مع دجاج محمّر
+                وتوابلنا الخاصة.
+              </p>
+
+              <div class="dish-bottom">
+                <span class="price">58 ر.س</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="dish-card">
+
+            <div class="dish-image">
+              <img
+                src="dish4.jpg"
+                alt="مندي اللحم"
+              />
+            </div>
+
+            <div class="dish-content">
+
+              <h3>مندي اللحم</h3>
+
+              <p>
+                لحم طري مطهو ببطء
+                مع أرز المندي العطري.
+              </p>
+
+              <div class="dish-bottom">
+                <span class="price">89 ر.س</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="dish-card">
+
+            <div class="dish-image">
+              <img
+                src="dish6.jpg"
+                alt="جريش نجدي"
+              />
+            </div>
+
+            <div class="dish-content">
+
+              <h3>الجريش النجدي</h3>
+
+              <p>
+                وصفة سعودية أصيلة
+                بلمسة وداد الخاصة.
+              </p>
+
+              <div class="dish-bottom">
+                <span class="price">42 ر.س</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="dish-card">
+
+            <div class="dish-image">
+              <img
+                src="dish7.jpg"
+                alt="لقيمات"
+              />
+            </div>
+
+            <div class="dish-content">
+
+              <h3>لقيمات وداد</h3>
+
+              <p>
+                لقيمات ذهبية مع دبس التمر
+                والسمسم.
+              </p>
+
+              <div class="dish-bottom">
+                <span class="price">24 ر.س</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section class="experience" id="experience">
+
+      <div class="section-container">
+
+        <div class="section-label">
+          تجربة وداد
+        </div>
+
+        <h2 class="section-title">
+          ليست وجبة فقط...
+          إنها لَمّة.
+        </h2>
+
+        <p>
+          من أول استقبال إلى آخر لقمة،
+          صممنا كل تفاصيل وداد لتشعر وكأنك ضيف في بيتٍ سعودي كريم.
+        </p>
+
+        <a href="#reservation" class="btn btn-primary">
+          عِش التجربة
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESERVATION
+    ========================== -->
+
+    <section class="reservation" id="reservation">
+
+      <div class="section-container">
+
+        <div class="reservation-box">
+
+          <div class="reservation-info">
+
+            <div class="section-label">
+              الحجز
+            </div>
+
+            <h2>
+              اجعل مائدتك القادمة...
+              مائدة وداد.
+            </h2>
+
+            <p>
+              احجز طاولتك واستمتع بتجربة سعودية
+              تجمع بين الأصالة والضيافة.
+            </p>
+
+          </div>
+
+
+          <form class="reservation-form" id="reservationForm">
+
+            <div class="form-group">
+              <label for="name">الاسم</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="اكتب اسمك"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">رقم الجوال</label>
+              <input
+                type="tel"
+                id="phone"
+                placeholder="05xxxxxxxx"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="date">التاريخ</label>
+              <input
+                type="date"
+                id="date"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="time">الوقت</label>
+              <select id="time" required>
+                <option value="">اختر الوقت</option>
+                <option>06:00 مساءً</option>
+                <option>07:00 مساءً</option>
+                <option>08:00 مساءً</option>
+                <option>09:00 مساءً</option>
+                <option>10:00 مساءً</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label for="guests">عدد الأشخاص</label>
+              <select id="guests" required>
+                <option value="">اختر العدد</option>
+                <option>شخص واحد</option>
+                <option>شخصان</option>
+                <option>3 أشخاص</option>
+                <option>4 أشخاص</option>
+                <option>5 أشخاص</option>
+                <option>6+ أشخاص</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <button class="btn btn-primary" type="submit">
+                تأكيد الحجز
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-logo">
+            وداد
+          </div>
+
+          <p class="footer-about">
+            مطبخ سعودي معاصر يحتفي بأصالة المذاق
+            ودفء الضيافة.
+          </p>
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>استكشف</h4>
+
+          <a href="#home">الرئيسية</a>
+          <a href="#story">قصتنا</a>
+          <a href="#menu">القائمة</a>
+          <a href="#reservation">الحجز</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>تواصل معنا</h4>
+
+          <p>الرياض، المملكة العربية السعودية</p>
+          <p>+966 50 000 0000</p>
+          <p>hello@wedad.sa</p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>ساعات العمل</h4>
+
+          <p>السبت — الخميس</p>
+          <p>12:00 م — 12:00 ص</p>
+          <p>الجمعة</p>
+          <p>1:00 م — 1:00 ص</p>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+        © 2026 وداد جميع الحقوق محفوظة.
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    // =========================
+    // Navbar scroll effect
+    // =========================
+
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+
+    // =========================
+    // Mobile menu
+    // =========================
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+
+    // Close mobile menu after clicking a link
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+      });
+    });
+
+
+    // =========================
+    // Reservation form
+    // =========================
+
+    const reservationForm =
+      document.getElementById("reservationForm");
+
+    reservationForm.addEventListener("submit", (event) => {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name").value;
+
+      alert(
+        `شكرًا ${name} 🤎\nتم استلام طلب الحجز بنجاح.\nسنتواصل معك لتأكيد الحجز.`
+      );
+
+      reservationForm.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
